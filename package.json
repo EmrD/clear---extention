@@ -1,0 +1,43 @@
+{
+  "name": "clean-commit-message",
+  "displayName": "Clean Commit Message",
+  "description": "Removes comment lines from git commit messages and selected text.",
+  "version": "0.0.1",
+  "publisher": "EmrD",
+  "engines": {
+    "vscode": "^1.45.0"
+  },
+  "activationEvents": [
+    "onCommand:extension.cleanCommitMessage",
+    "onCommand:extension.cleanSelectedText"
+  ],
+  "main": "./out/extension.js",
+  "scripts": {
+    "build": "esbuild src/extension.ts --bundle --outdir=out --platform=node --external:vscode",
+    "watch": "esbuild src/extension.ts --bundle --outdir=out --platform=node --external:vscode --watch"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.cleanCommitMessage",
+        "title": "Clean Commit Message"
+      },
+      {
+        "command": "extension.cleanSelectedText",
+        "title": "Remove # from Selected Text"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "extension.cleanSelectedText",
+          "when": "editorTextFocus && editorHasSelection",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "esbuild": "^0.23.1"
+  }
+}
