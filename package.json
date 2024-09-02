@@ -1,9 +1,10 @@
 {
-  "name": "clean-commit-message",
-  "displayName": "Clean Commit Message",
+  "name": "clean-from-text",
+  "displayName": "Clean # From Text",
   "description": "Removes comment lines from git commit messages and selected text.",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "publisher": "EmrD",
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.45.0"
   },
