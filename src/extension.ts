@@ -35,24 +35,7 @@ export function activate(context: vscode.ExtensionContext) {
             vscode.workspace.applyEdit(edit);
         }
     });
-
-    // Add listener for git commit message files
-    vscode.workspace.onDidOpenTextDocument(async (document) => {
-        console.log(`Opened file: ${document.fileName}`);
-
-        if (document.fileName.endsWith('COMMIT_EDITMSG')) {
-            const userResponse = await vscode.window.showInformationMessage(
-                "Yorum satırlarını silmek istiyor musunuz?",
-                "Evet",
-                "Hayır"
-            );
-
-            if (userResponse === "Evet") {
-                vscode.commands.executeCommand('extension.cleanCommitMessage');
-            }
-        }
-    });
-
+    
     context.subscriptions.push(disposable);
     context.subscriptions.push(removeHashDisposable);
 }

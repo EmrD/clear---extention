@@ -20,10 +20,6 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.cleanCommitMessage",
-        "title": "Clean Commit Message"
-      },
-      {
         "command": "extension.cleanSelectedText",
         "title": "Remove # from Selected Text"
       }

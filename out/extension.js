@@ -63,19 +63,6 @@ function activate(context) {
       vscode.workspace.applyEdit(edit);
     }
   });
-  vscode.workspace.onDidOpenTextDocument(async (document) => {
-    console.log(`Opened file: ${document.fileName}`);
-    if (document.fileName.endsWith("COMMIT_EDITMSG")) {
-      const userResponse = await vscode.window.showInformationMessage(
-        "Yorum sat\u0131rlar\u0131n\u0131 silmek istiyor musunuz?",
-        "Evet",
-        "Hay\u0131r"
-      );
-      if (userResponse === "Evet") {
-        vscode.commands.executeCommand("extension.cleanCommitMessage");
-      }
-    }
-  });
   context.subscriptions.push(disposable);
   context.subscriptions.push(removeHashDisposable);
 }
